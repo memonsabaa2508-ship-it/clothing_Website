@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trendy Clothing Game</title>
+<style>
+body{
+    margin:0;
+    background:#f4f6f9;
+    text-align:center;
+    font-family:Arial, sans-serif;
+}
+
+h1{
+    margin:10px;
+    color:#e91e63;
+}
+
+canvas{
+    background:white;
+    display:block;
+    margin:20px auto;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<h1>Catch the Trendy Outfit 🎮</h1>
+<canvas id="gameCanvas" width="400" height="500"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let basketX = 150;
+let clothY = 0;
+let clothX = Math.random() * 350;
+let score = 0;
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowLeft") basketX -= 20;
+    if(e.key === "ArrowRight") basketX += 20;
+});
+
+function drawBasket(){
+    ctx.fillStyle = "#2196f3";
+    ctx.fillRect(basketX, 450, 100, 20);
+}
+
+function drawCloth(){
+    ctx.fillStyle = "#e91e63";
+    ctx.fillRect(clothX, clothY, 30, 30);
+}
+
+function update(){
+    ctx.clearRect(0,0,400,500);
+
+    clothY += 4;
+
+    if(clothY > 450 && clothX > basketX && clothX < basketX + 100){
+        score++;
+        clothY = 0;
+        clothX = Math.random() * 350;
+    }
+
+    if(clothY > 500){
+        clothY = 0;
+        clothX = Math.random() * 350;
+    }
+
+    drawBasket();
+    drawCloth();
+
+    ctx.fillStyle = "#333";
+    ctx.fillText("Score: " + score, 10, 20);
+
+    if(score >= 10){
+        ctx.clearRect(0,0,400,500);
+        ctx.fillStyle = "#e91e63";
+        ctx.font = "20px Arial";
+        ctx.fillText("🎉 Visit Trendy Clothing!", 60, 220);
+        ctx.fillText("Shop Now & Stay Stylish 👕", 70, 260);
+        return;
+    }
+
+    requestAnimationFrame(update);
+}
+
+update();
+</script>
+<video width="600" controls autoplay muted>
+  <source src="game-ad.mp4" type="video/mp4">
+</video>
+</body>
+</html>

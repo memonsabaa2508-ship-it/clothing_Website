@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Marketing | Trendy Clothing</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header Section */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1445205170230-053b83016050');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* Marketing Cards */
+.marketing-card {
+    transition: 0.4s;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.marketing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.marketing-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Card Text */
+.card-body {
+    background: #f8f9fa;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #ccc;
+}
+.marketing-card{
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.marketing-card:hover{
+    transform: translateY(-5px);
+}
+
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}
+/* Wrapper for video */
+.video-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Video Styling */
+.card-video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+/* Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: 0.4s;
+    text-align: center;
+}
+
+/* Show overlay on hover */
+.video-card:hover .video-overlay {
+    opacity: 1;
+}
+
+/* Zoom video on hover */
+.video-card:hover .card-video {
+    transform: scale(1.1);
+}
+
+/* Card Styling */
+.video-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-video {
+        height: 180px;
+    }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".card-video");
+
+    videos.forEach(video => {
+        video.parentElement.addEventListener("mouseenter", () => {
+            video.play().catch(e => console.log("Play error:", e));
+        });
+
+        video.parentElement.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+});
+</script>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Trendy Clothing</a>
+  </div>
+</nav>
+
+<!-- Header Section -->
+<section class="page-header">
+  <div class="container text-center">
+    <h1 class="display-5 fw-bold">Mobile Marketing for Fashion</h1>
+    <p class="lead">Promoting Our Clothing Brand Through Smart Digital Strategies</p>
+  </div>
+</section>
+
+<!-- Marketing Posters Section -->
+<section class="container my-5">
+  <div class="row g-4">
+
+    <!-- App Marketing -->
+<div class="col-md-4">
+  <div class="card marketing-card">
+    <img src="app marketing.png" class="card-img-top" alt="Fashion App Marketing">
+    <div class="card-body text-center">
+      <h5 class="fw-bold">Fashion Mobile App</h5>
+      <p>
+        Shop the latest trends anytime, anywhere. 
+        Enjoy exclusive app-only discounts, early access to new arrivals, 
+        and personalized style recommendations.
+      </p>
+      <button class="btn btn-dark btn-sm">Download Now</button>
+    </div>
+  </div>
+</div>
+<!-- Game Marketing -->
+<div class="col-md-4">
+  <div class="card marketing-card video-card">
+
+    <div class="video-wrapper">
+      <video class="card-video" muted loop>
+        <source src="game.mp4" type="video/mp4">
+      </video>
+
+      <!-- Overlay Content -->
+      <div class="video-overlay">
+        <h5>In-Game Mobile Marketing</h5>
+        <p>Fashion Hub ads inside mobile games</p>
+      </div>
+    </div>
+
+    <div class="card-body text-center">
+      <button class="btn btn-dark btn-sm">Learn More</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Location Marketing -->
+<div class="col-md-4">
+  <div class="card marketing-card">
+    <img src="location.png" class="card-img-top" alt="Location Marketing">
+    <div class="card-body text-center">
+      <h5 class="fw-bold">Location-Based Marketing</h5>
+      <p>
+        Get personalized fashion offers and discounts when you are near our store.
+        Enjoy real-time alerts and exclusive nearby deals.
+      </p>
+      <button class="btn btn-dark btn-sm">View Nearby Offers</button>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- Marketing Posters Section -->
+<section class="container my-5">
+  <div class="row g-4">
+
+    <!-- QR Code Marketing -->
+<div class="col-md-4">
+  <div class="card marketing-card">
+    <img src="qr code.png" class="card-img-top" alt="QR Code Marketing">
+    <div class="card-body text-center">
+      <h5 class="fw-bold">QR Code Marketing</h5>
+      <p>
+        Scan our QR codes to unlock exclusive fashion deals, special discounts,
+        and surprise offers. Experience interactive shopping with instant access
+        to collections, contests, and limited-time promotions.
+      </p>
+      <button class="btn btn-dark btn-sm">Scan & Explore</button>
+    </div>
+  </div>
+</div>
+    <!-- Mobile Search Ads -->
+<div class="col-md-4">
+  <div class="card marketing-card">
+    <img src="moblie 2.png" class="card-img-top" alt="Mobile Search Ads">
+    <div class="card-body text-center">
+      <h5 class="fw-bold">Mobile Search Ads</h5>
+      <p>
+        Promote our clothing brand on Google search results with 
+        click-to-call buttons, location extensions, and direct links 
+        to collections to attract ready-to-buy mobile customers.
+      </p>
+      <button class="btn btn-dark btn-sm">Advertise Now</button>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card marketing-card">
+    <img src="moblie app.png" class="card-img-top" alt="Location Marketing">
+    <div class="card-body text-center">
+      <h5 class="fw-bold">Location-Based Marketing</h5>
+      <p>
+        Get personalized fashion offers and discounts when you are near our store.
+        Enjoy real-time alerts and exclusive nearby deals.
+      </p>
+      <button class="btn btn-dark btn-sm">View Nearby Offers</button>
+    </div>
+  </div>
+</div>
+  </div>
+  
+</section>
+
+
+<!-- ===== Footer ===== -->
+<footer class="footer-section mt-5">
+<div class="container py-5">
+<div class="row">
+
+<!-- About -->
+<div class="col-md-4 mb-4">
+<h5 class="footer-title">Fashion Hub</h5>
+<p>
+Fashion Hub is a modern western clothing brand delivering trendy,
+high-quality, and affordable fashion for every occasion.
+We focus on style, comfort, and confidence.
+</p>
+</div>
+
+<!-- Quick Links -->
+<div class="col-md-2 mb-4">
+<h5 class="footer-title">Quick Links</h5>
+<ul class="list-unstyled">
+<li><a href="#home">Home</a></li>
+<li><a href="#products">Collections</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+
+<!-- Customer Service -->
+<div class="col-md-3 mb-4">
+<h5 class="footer-title">Customer Service</h5>
+<ul class="list-unstyled">
+<li><a href="#">FAQs</a></li>
+<li><a href="#">Shipping Policy</a></li>
+<li><a href="#">Returns & Refunds</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+</div>
+
+<!-- Contact -->
+<div class="col-md-3 mb-4">
+<h5 class="footer-title">Contact Us</h5>
+<p>Email: support@fashionhub.com</p>
+<p>Phone: +91 98765 43210</p>
+<p>Location: Mumbai, India</p>
+
+<div class="social-icons mt-3">
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-twitter"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="text-center py-3 footer-bottom">
+© 2026 Fashion Hub | All Rights Reserved
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

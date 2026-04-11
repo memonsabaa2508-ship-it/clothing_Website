@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Hub</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ===== Clean Navbar ===== */
+.navbar {
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 20px;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #d63384 !important;
+}
+
+/* Underline Hover Effect */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #d63384;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1445205170230-053b83016050');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ===== Product Cards ===== */
+.product-card {
+    transition: 0.3s;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-card .card-body {
+    text-align: center;
+}
+
+/* ===== About Section ===== */
+#about {
+    background-color: white;
+    padding: 60px 0;
+    border-radius: 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #111;
+    color: #ccc;
+}
+/* ===== Footer Styling ===== */
+.footer-section {
+    background: #111;
+    color: #ccc;
+}
+
+.footer-title {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.footer-section a:hover {
+    color: #d63384;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    background: #000;
+    color: #aaa;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #d63384;
+}
+/* Affiliate Section */
+.affiliate-box {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+}
+.product-card:hover .text-danger {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">Fashion Hub</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#products">Collections</a></li>
+<li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="digital marketing.html">Digital Marketing</a></li>
+<div class="ms-3 position-relative">
+  <button class="btn btn-outline-dark" onclick="showCart()">
+    🛒 Cart
+  </button>
+</div>
+</ul>
+</div>
+</div>
+</nav>
+<script>
+function showCart() {
+    let data = localStorage.getItem("orderDetails");
+
+    if (data) {
+        let user = JSON.parse(data);
+
+        alert(
+            "🛒 Order Details:\n\n" +
+            "Name: " + user.name + "\n" +
+            "Email: " + user.email
+        );
+    } else {
+        alert("🛒 Cart is empty!");
+    }
+}
+</script>
+<!-- ===== Final Poster Section ===== -->
+<section class="container my-5">
+  <div class="poster text-center text-white d-flex align-items-center justify-content-center"
+       style="height: 400px; border-radius: 20px;
+       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+       url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d');
+       background-size: cover; background-position: center;">
+  <div>     
+    <h1>Style That Defines You</h1>
+<p class="lead mt-3">Trendy • Elegant • Affordable Fashion</p>
+<a href="#products" class="btn btn-light btn-lg mt-3">Shop Now</a>
+</div>
+
+  </div>
+</section>
+<!-- ===== Girls Western Collection ===== -->
+<section class="container my-5 pt-5" id="products">
+<h2 class="section-title text-center mb-4">Girls Western Collection</h2>
+
+<div class="row g-4">
+
+<!-- Product 1 -->
+<!-- Product 1 -->
+<div class="col-md-4">
+  <div class="card product-card h-100 shadow-sm">
+
+    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446" 
+         class="card-img-top" 
+         alt="Floral Summer Dress">
+
+    <div class="card-body">
+
+      <h5>Floral Summer Dress</h5>
+
+      <p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹1,499</span>
+        <span class="badge bg-success ms-2">25% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(4.2)</span>
+      </p>
+
+      <p>
+        A trendy floral summer dress with an elegant flowy design,
+        offering lightweight comfort and stylish fashion.
+      </p>
+
+      <a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+      <a href="blog.html" class="btn btn-outline-dark btn-sm">Read More</a>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Product 2 -->
+<div class="col-md-4">
+<div class="card product-card h-100 shadow-sm">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b" class="card-img-top" alt="Denim Jacket for Girls">
+<div class="card-body">
+<h5>Classic Denim Jacket</h5>
+<p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹2,099</span>
+        <span class="badge bg-success ms-2">23% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(5.0)</span>
+      </p>
+
+<p>This trendy denim jacket adds an elegant structured look to casual outfits, delivering timeless and affordable fashion.</p>
+<a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+<a href="p2.html" class="btn btn-outline-dark btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+<!-- Product 3 -->
+<div class="col-md-4">
+<div class="card product-card h-100 shadow-sm">
+<img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9" class="card-img-top" alt="Formal Blazer for Women">
+<div class="card-body">
+<h5>Formal Blazer</h5>
+<p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹1,700</span>
+        <span class="badge bg-success ms-2">25% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(3.5)</span>
+      </p>
+
+<p>An elegant tailored blazer with a trendy modern fit, perfect for office wear and refined affordable fashion styling.</p>
+<a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+<a href="p3.html" class="btn btn-outline-dark btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+<!-- Product 4 -->
+<div class="col-md-4">
+<div class="card product-card h-100 shadow-sm">
+<img src="https://images.unsplash.com/photo-1544441893-675973e31985" class="card-img-top" alt="High Waist Jeans">
+<div class="card-body">
+<h5>High Waist Jeans</h5>
+<p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹2,400</span>
+        <span class="badge bg-success ms-2">21% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(4.4)</span>
+      </p>
+
+<p>Trendy high-waist jeans with an elegant slim silhouette, designed for comfort and affordable fashion confidence.</p>
+<a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+<a href="p4.html" class="btn btn-outline-dark btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+<!-- Product 5 -->
+<div class="col-md-4">
+<div class="card product-card h-100 shadow-sm">
+<img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03" class="card-img-top" alt="Casual Crop Top">
+<div class="card-body">
+<h5>Minimal Crop Top</h5>
+<p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹2,499</span>
+        <span class="badge bg-success ms-2">22% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(3.2)</span>
+      </p>
+
+<p>A trendy minimal crop top with an elegant cut, ideal for stylish and affordable fashion moments.</p>
+<a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+<a href="p5.html" class="btn btn-outline-dark btn-sm">Read More</a>
+
+</div>
+</div>
+</div>
+
+<!-- Product 6 -->
+<div class="col-md-4">
+<div class="card product-card h-100 shadow-sm">
+<img src="gown.jfif" class="card-img-top" alt="Evening Party Gown">
+<div class="card-body">
+<h5>Evening Party Gown</h5>
+<p>
+        <span class="text-muted text-decoration-line-through">₹1,999</span>
+        <span class="fw-bold text-danger ms-2">₹2,499</span>
+        <span class="badge bg-success ms-2">30% OFF</span>
+      </p>
+
+      <p class="text-warning mb-2">
+        ★★★★☆ <span class="text-dark">(4.5)</span>
+      </p>
+<p>An elegant evening gown with trendy detailing, crafted to bring graceful and affordable fashion to special occasions.</p>
+<a href="contact.html" class="btn btn-dark btn-sm">Shop Now</a>
+<a href="p6.html" class="btn btn-outline-dark btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<!-- ===== Affiliate Promotion Section ===== -->
+<section class="container my-5">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
+class="img-fluid rounded shadow"
+alt="Modern Fashion">
+</div>
+
+<div class="col-md-6">
+
+<h2 class="fw-bold mb-3">Celebrity & Affiliate Promotion</h2>
+	
+<p>
+Fashion Hub collaborates with celebrities, influencers, and content creators
+to promote our trendy fashion collection through affiliate marketing.
+They showcase our products on social media, websites, and videos to reach a wider audience.
+</p>
+
+<p>
+Whenever customers purchase through their unique referral links,
+our partners earn a commission. This strategy helps boost brand visibility,
+increase sales, and build trust among customers worldwide.
+</p>
+
+<ul class="list-unstyled">
+  <li>✔ Celebrity & Influencer Promotion</li>
+  <li>✔ Social Media Marketing</li>
+  <li>✔ Earn Commission on Every Sale</li>
+  <li>✔ Trusted & Transparent System</li>
+  <li>✔ Global Brand Growth</li>
+</ul>
+
+<a href="#products" class="btn btn-dark mt-3">Become a Promoter</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer-section mt-5">
+<div class="container py-5">
+<div class="row">
+
+<!-- About -->
+<div class="col-md-4 mb-4">
+<h5 class="footer-title">Fashion Hub</h5>
+<p>
+Fashion Hub is a modern western clothing brand delivering trendy,
+high-quality, and affordable fashion for every occasion.
+We focus on style, comfort, and confidence.
+</p>
+</div>
+
+<!-- Quick Links -->
+<div class="col-md-2 mb-4">
+<h5 class="footer-title">Quick Links</h5>
+<ul class="list-unstyled">
+<li><a href="#home">Home</a></li>
+<li><a href="#products">Collections</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="Contact.html">Contact</a></li>
+</ul>
+</div>
+
+<!-- Customer Service -->
+<div class="col-md-3 mb-4">
+<h5 class="footer-title">Customer Service</h5>
+<ul class="list-unstyled">
+<li><a href="#">FAQs</a></li>
+<li><a href="#">Shipping Policy</a></li>
+<li><a href="#">Returns & Refunds</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+</div>
+
+<!-- Contact -->
+<div class="col-md-3 mb-4">
+<h5 class="footer-title">Contact Us</h5>
+<p>Email: support@fashionhub.com</p>
+<p>Phone: +91 98765 43210</p>
+<p>Location: Mumbai, India</p>
+
+<div class="social-icons mt-3">
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-twitter"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="text-center py-3 footer-bottom">
+© 2026 Fashion Hub | All Rights Reserved
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
